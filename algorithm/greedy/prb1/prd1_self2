@@ -1,0 +1,9 @@
+N,M,K = map(int,input().split())
+array = list(map(int,input().split()))
+
+array.sort()
+max1 = array[n-1]
+max2 = array[n-2]
+    
+result = (max1*K + max2)*(M//(K+1)) + (max1)*(M%(K+1))
+print(result)
