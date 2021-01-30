@@ -1,0 +1,21 @@
+N = int(input())
+M = int(input())
+K = int(input())
+array = []
+max = 0
+max2 = 0
+
+for i in range(N):
+  array.append(int(input()))
+  if array[i]> max:
+    max2 = max
+    max = array[i]
+  elif array[i]>max2:
+    max2 = array[i]
+  print(max)
+  print(max2)
+
+
+result = (max*K + max2)*(M//(K+1)) + (max2)*(M%(K+1))
+
+print(result)
