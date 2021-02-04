@@ -28,7 +28,7 @@ def bfs(x, y):
       ny = y + dy[i]
       print(dx[i],dy[i])
       print(nx,ny)
-      if nx<0 or nx>n-1 or ny<0 or ny<m-1:
+      if nx<0 or nx>n-1 or ny<0 or ny > m-1:
         continue
       if graph[nx][ny] == 0:
         print('0',nx,ny)
