@@ -11,9 +11,9 @@ data.sort(reverse=True)
 while index < n:
   val = data[index]
   index += val
-  if index > n:
-    break
-  else:
-    team_cnt += 1
+  team_cnt += 1
+
+if index > n:
+   team_cnt -= 1
     
-    print(team_cnt)
+print(team_cnt)
