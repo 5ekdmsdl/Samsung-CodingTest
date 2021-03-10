@@ -1,40 +1,36 @@
 def solution(key, lock):
+    N = len(lock)
+    M = len(key)
     il = []
     ik = []
     for i in range(N):
         for j in range(N):
             if lock[i][j] == 0:
-                il.append((i,j))
+                il.append([i,j])
     for a in range(M):
         for b in range(M):
             if key[a][b] == 1:
-                ik.append((a,b))
+                ik.append([a,b])
                 
     for i in range(4):
-        il, ik = turn(il,ik)
+        ik = turn(ik,M)
         if fit(il,ik) == True:
             return True          
     return False
 
-def turn(key,M,N):
-    graph1 = [[0]*M for _ in range(M)]
-    graph2 = key
-    for i in range(M):
-        graph1[i] = graph2[M-i-1]
-    for i in range(M):
-        for j in range(M):
-            graph2[j][i] = graph1[i][j]
-    return graph2
+def turn(ik,M):
+    for i in ik:
+        i[0] = (M-1)-i[0]
+        i[0],i[1] = i[1],i[0]
+    return ik
 
-def fit(key,lock,M,N):
-    
+def fit(il,ik):
     xgap = il[0][0] - ik[0][0]
     ygap = il[0][1] - ik[0][1]
     
     flg = True
     for i in il:
-        if key[i[0]-xgap][i[1]-ygap] == 0:
+        if [i[0]-xgap,i[1]-ygap] not in ik:
             flg = False
             break
     return flg
-   
