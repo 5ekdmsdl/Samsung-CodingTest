@@ -1,7 +1,6 @@
 def plus(a,b) :
     return a+b
 def minus(a,b) :
-    # print(a,b)
     return a-b
 def multiply(a,b) : return a*b
 
@@ -18,6 +17,7 @@ def func(result, abc, cnt):
     for i in range(3) :
         if abc[i] :
             abc[i] -= 1
+            #다음 연산을 위해 초기값을 변형하면 안되지!!!
             # print(calculate[i](result, nums[cnt]), abc, cnt)
             func(calculate[i](result, nums[cnt]), abc, cnt+1)
             abc[i] += 1
