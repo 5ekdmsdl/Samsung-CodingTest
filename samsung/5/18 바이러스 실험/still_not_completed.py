@@ -1,3 +1,5 @@
+# 삼차원 배열 + deque
+
 def funcA():
     for (r,c) in vs.keys():
         n_vs = vs[(r,c)]
