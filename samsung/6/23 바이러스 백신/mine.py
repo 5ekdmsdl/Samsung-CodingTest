@@ -6,6 +6,7 @@ def run(ch):
     global minvalue
     q = deque()
     dmapp = [[INF] * n for _ in range(n)]
+    // 병원들은 거리 0으로
     for c in ch :
         q.append(c+[0])
         dmapp[c[0]][c[1]] = 0
@@ -15,14 +16,16 @@ def run(ch):
         for i in range(4) :
             nx, ny = x+dx[i], y+dy[i]
             if not (0<=nx<=n-1 and 0<=ny<=n-1) : continue
+            // 벽이면 통과 못함
             if mapp[nx][ny] == 1 : continue
             nd = d+1
             if nd < dmapp[nx][ny] :
+                // 지나간 곳 표시
                 if mapp[nx][ny] == 0 : mapp[nx][ny] = 3
                 dmapp[nx][ny] = nd
                 q.append([nx, ny, nd])
+    // 맨 마지막에 남은 바이러스 있는지, 최대 걸린 시간이 몇인지 확인
     cmax = 0
-
     for i in range(n):
         if 0 in mapp[i] :
             minvalue = -1
@@ -62,6 +65,3 @@ for x in range(n):
 
 chooseh([], 0)
 print(minvalue)
-
-
-
