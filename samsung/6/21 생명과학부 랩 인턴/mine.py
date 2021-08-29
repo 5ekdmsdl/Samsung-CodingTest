@@ -15,18 +15,20 @@ def move():
         x,y = xy
         b,s,d = gs[xy]
 
+        //한 칸씩 움직이기
         for i in range(s) :
             nx, ny = x+dx[d], y+dy[d]
             if not (0 <= nx <= n-1 and 0 <= ny <= m-1) :
                 d = rev[d]
                 nx, ny = x + dx[d], y + dy[d]
             x,y = nx, ny
-
+        //n_gs에 업데이트
+        //다른애랑 마주치면
         if (x,y) in n_gs.keys() :
             if n_gs[(x,y)][0] < b :
                 n_gs[(x,y)] = [b,s,d]
         else : n_gs[(x,y)] = [b,s,d]
-
+    //gs 업데이트
     gs = n_gs
     return
 
