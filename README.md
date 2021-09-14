@@ -1,2 +1,2 @@
 # codingtest
-studying by my self 
+studying by myself 
